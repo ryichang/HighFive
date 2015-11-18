@@ -1,6 +1,6 @@
 <section class='intro'>
  <div class="col-sm-8 col-sm-offset-2 well">
- <h1>Sign up for Travel Chatter</h1>
+ <h1>Sign up for High Five</h1>
      <%= form_for @user do |f| %>
        <ul>
            <% if @user.errors.any? %> 
@@ -18,11 +18,7 @@
      <%= f.label :last_name %> 
      <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control' %> 
      <br> 
-     <%= f.label :location %>
-     <%= f.text_field :location, placeholder: "location", class:'form-control'%> 
-     <br> 
    <%= f.label :image_url %>
-   <%= f.text_field :image_url, placeholder: "Find a picture you like, right click and hit copy image url", class:'form-control'%> 
    <br> 
      <%= f.label :email %> 
      <%= f.text_field :email, class:'form-control' %>
