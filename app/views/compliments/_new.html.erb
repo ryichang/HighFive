@@ -1,0 +1,29 @@
+<h3>Compliments <% if @user.compliments.any? %> (<%= @user.compliments.count %>)<% end %></h3>
+
+  <%= form_for [@user, @compliment] do |f| %>
+
+  <% if @compliment.errors.any? %>
+  <div class='comment-form'>
+  <div id="error_explanation">
+    <h2 class="error-warning">
+      <%= pluralize(@compliment.errors.count, "error") %> prohibited
+      this compliment from being saved:
+    </h2>
+    <ul>
+      <% @compliment.errors.full_messages.each do |msg| %>
+      <li class="error-message"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p class="comment-form-title">
+    <%= f.label :'New Compliments' %>
+    <%= f.text_field :feedback, class: 'form-control' %>
+  </p>
+
+  <p class="comment-form-submit">
+    <%= f.submit "Post Comment", :class => 'btn btn-sm btn-primary pull-right' %>
+  </p>
+</div>
+  <% end %>
