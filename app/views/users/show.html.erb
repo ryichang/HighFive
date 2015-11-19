@@ -2,7 +2,9 @@
 	<div class="row">
 		<div id="profile-info" class="col-sm-offset-1 col-sm-3 affix">
 			<h1><%= @user[:first_name] %> <%= @user[:last_name] %></h1>
-			<img src="http://placehold.it/200x200" alt="profile photo">	
+			<div class="circular">
+			<!-- <img src="http://placehold.it/200x200" alt="profile photo"> -->	
+			</div>
 			<p></p> <!-- padding -->
 <!-- 			<p>Bio</p> -->
     		<p><strong>Join Date: </strong><small><%= time_ago_in_words(@user.created_at)%> ago</small></p>
@@ -11,7 +13,7 @@
 		</div>
 		<div id="profile-data" class="col-sm-offset-5 col-sm-6">
 			<h2>Compliments</h2>
-
-		</div>
+  		</div>
 	</div>
 </div>
+

@@ -15,3 +15,14 @@ body {
 .subtitle {
 	font-size: 36px;
 }
+
+.circular {
+	margin: 0 ,auto;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: url(http://wedesignthemes.com/html/role/images/post-images/profile-img4.jpg) center;
+	margin-left: 5%;
+    margin-right: auto
+}
+
