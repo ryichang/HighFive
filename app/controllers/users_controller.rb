@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 	     @user = User.new(user_params)
 	   if @user.save
 	      login(@user) # <-- login the user
-	      redirect_to user_path(@user)# <-- go to show
+	      redirect_to location_path(@user)# <-- go to show
 	   else
 	     render :new
 	   end

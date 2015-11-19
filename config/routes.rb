@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'sessions#new', as: 'new_session'
 
   resources :sessions, only: [:new, :create]
+  resources :locations
 
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
