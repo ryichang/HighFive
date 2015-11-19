@@ -30,6 +30,15 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 gem "paperclip", "~> 4.3"
 
+# Geocoder
+gem 'geocoder'
+
+# Underscore
+gem 'underscore-rails'
+
+# Google API 
+gem 'gmaps4rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
