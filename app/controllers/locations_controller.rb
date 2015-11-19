@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
 	end
 
 	def show
-		
+		@user = User.all 
 	end
 
 end
