@@ -7,13 +7,11 @@ body {
 	font-family: 'Asap', sans-serif;
 }
 
-#high {
-	font-style: italic;
-	font-size: 36px;
+.title {
+	font-size: 60px;
+
 }
 
-#five {
-	font-style: normal;
+.subtitle {
 	font-size: 36px;
 }
-

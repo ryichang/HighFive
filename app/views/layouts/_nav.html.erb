@@ -24,9 +24,13 @@
        <li><%= link_to "Log out", logout_path, method: :delete %></li>
      <% else %> 
        <li><%= link_to "Log in",  new_session_path, method: :get %></li>
-       <li><%= link_to "Sign up", new_user_path, method: :get %></li>
+       <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="sample1">
+    <label class="mdl-textfield__label" for="sample1">Text...</label>
+  
+  <%= link_to "Sign up", new_user_path,  method: :get %>
      <% end %>
-     </ul>
+     </div>
    </div><!-- /.navbar-collapse -->
  </div><!-- /.container-fluid -->
 </nav>
