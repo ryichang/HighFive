@@ -9,10 +9,22 @@
 <!-- 			<p>Bio</p> -->
     		<p><strong>Join Date: </strong><small><%= time_ago_in_words(@user.created_at)%> ago</small></p>
     		<%=link_to "Edit profile", user_path, class:"btn btn-primary" %> 
+    		  <div>
+    		  	<%= form_for [@user, @compliment] do |f| %>
+    				<%= f.text_field :comments, placeholder: "Description" %>
+    				<%= f.submit "Compliment!" %>
+    			<% end %>
+  			  </div>
+    		<p class="text-center"><%= button_to "Add New Post", user_id: @user.id, :method => 'get', class:"btn btn-primary" %></p> 
+    		</div>
     		<p></p> <!-- padding -->
 		</div>
 		<div id="profile-data" class="col-sm-offset-5 col-sm-6">
 			<h2>Compliments</h2>
+			<% @user.compliments.each do |compliment| %>
+			<%= compliment.user_id %>
+			<li><%= compliment.comments %></li>
+			<% end %>
   		</div>
 	</div>
 </div>
