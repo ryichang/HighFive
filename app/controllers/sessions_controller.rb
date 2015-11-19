@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		p "in logout route" * 1000
 		logout
-		redirect_to root_path 
+		redirect_to root_url#, notice: "Logged Out"
 	end
 end
