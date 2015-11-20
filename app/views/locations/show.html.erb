@@ -5,5 +5,5 @@ MAP PGAGE
 </div>
 
 <% @user.each do |p| %>
-<li><%= p.first_name %></li>
-<% end %>
+<li><a href="/users/<%=p.id%>"><%= p.first_name %> </a></li>
+<% end %>	

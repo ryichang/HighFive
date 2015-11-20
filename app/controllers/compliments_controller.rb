@@ -6,13 +6,16 @@ class ComplimentsController < ApplicationController
 
 	def create
 		@user = User.find(params[:user_id])
-		@compliment = @user.compliments.create(params[:compliment].permit(:high_five))
-		@compliment.user_id = current_user.id
+		@compliment = @user.compliments.new(compliment_params)
 		if @compliment.save
 			redirect_to @user
 		else
 			@user = User.find(params[:user_id])
 			render 'users/show'
 		end
+	end
+
+	def compliment_params
+		params.require(:compliment).permit(:high_five, :comments, :user_id)
 	end
 end
