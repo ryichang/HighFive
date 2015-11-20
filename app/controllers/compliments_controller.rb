@@ -6,7 +6,7 @@ class ComplimentsController < ApplicationController
 
 	def create
 		@user = User.find(params[:user_id])
-		@compliment = @user.compliments.new(compliment_params)
+		@compliment = @user.compliments_received.new(compliment_params)
 		@compliment.complimentor_id = current_user.id
 		p "@user is:"
 		p @user
