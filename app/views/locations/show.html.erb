@@ -1,9 +1,10 @@
 MAP PGAGE
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
+<button data-id="<%= @user.id %>" id="finder-btn" class="col-xs-6 ">Locate Me</button>
 
-<% @user.each do |p| %>
+
+    <div id="out" class="col-xs-10 col-xs-offset-1 row text-center"></div>
+
+<% @player.each do |p| %>
 <li><a href="/users/<%=p.id%>"><%= p.first_name %> </a></li>
 <% end %>	
