@@ -10,7 +10,6 @@
   </div>
 			
 			<h1><%= @user[:first_name] %> <%= @user[:last_name] %></h1>
-			
 
 			<p></p> <!-- padding -->
 <!-- 			<p>Bio</p> -->
@@ -18,7 +17,7 @@
     		<%=link_to "Edit profile", user_path, class:"btn btn-primary" %> 
     		  <div>
     		  	<%= form_for [@user, @compliment] do |f| %>
-    				<%= f.text_field :comments, placeholder: "Description" %>
+    				<%= f.text_field :comment, placeholder: "Description" %>
     				<%= f.submit "Compliment!" %>
     			<% end %>
   			  </div>
@@ -28,9 +27,9 @@
 		</div>
 		<div id="profile-data" class="col-sm-offset-5 col-sm-6">
 			<h2>Compliments</h2>
-			<% @user.compliments.each do |compliment| %>
-			<%= compliment.user_id %>
-			<li><%= compliment.comments %></li>
+			<% @user.compliments_received.each do |compliment| %>
+			<%= User.find(compliment.complimentor_id).first_name %>
+			<li><%= compliment.comment %></li>
 			<% end %>
   		</div>
 	</div>

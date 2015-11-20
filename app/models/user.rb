@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 	validates_length_of :first_name, :allow_blank => false
 	validates_length_of :last_name, :allow_blank => false
 
-	has_many :compliments
+	has_many :compliments_received, class_name: "Compliment", foreign_key: "recipient_id"
+	has_many :compliments_given, class_name: "Compliment", foreign_key: "complimentor_id"
 	has_one :location
 
 	user = User.new
