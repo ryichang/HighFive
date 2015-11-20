@@ -5,7 +5,8 @@ class LocationsController < ApplicationController
 	end
 
 	def show
-		@user = User.all 
+		@player = User.all 
+		@user = User.find(session[:user_id])
 	end
 
 end
