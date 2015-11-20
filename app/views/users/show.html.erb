@@ -16,7 +16,7 @@
     		<%=link_to "Edit profile", user_path, class:"btn btn-primary" %> 
     		  <div>
     		  	<%= form_for [@user, @compliment] do |f| %>
-    				<%= f.text_field :comments, placeholder: "Description" %>
+    				<%= f.text_field :comment, placeholder: "Description" %>
     				<%= f.submit "Compliment!" %>
     			<% end %>
   			  </div>
@@ -28,7 +28,7 @@
 			<h2>Compliments</h2>
 			<% @user.compliments_received.each do |compliment| %>
 			<%= User.find(compliment.complimentor_id).first_name %>
-			<li><%= compliment.comments %></li>
+			<li><%= compliment.comment %></li>
 			<% end %>
   		</div>
 	</div>
