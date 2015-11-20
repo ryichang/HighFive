@@ -23,6 +23,6 @@ class ComplimentsController < ApplicationController
 	end
 
 	def compliment_params
-		params.require(:compliment).permit(:high_five, :comments, :recipient_id, :complimentor_id)
+		params.require(:compliment).permit(:high_five, :comment, :recipient_id, :complimentor_id)
 	end
 end
