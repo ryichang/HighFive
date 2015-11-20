@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118222450) do
+ActiveRecord::Schema.define(version: 20151120192045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20151118222450) do
   create_table "compliments", force: :cascade do |t|
     t.integer  "high_five"
     t.string   "comments"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "recipient_id"
+    t.integer  "complimentor_id"
   end
 
   create_table "users", force: :cascade do |t|
