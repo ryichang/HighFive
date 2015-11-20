@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div id="profile-info" class="col-sm-offset-1 col-sm-3 affix">
-			<div class="circular"><%= image_tag @user.avatar.url(:medium) %></div>
+			<%= image_tag @user.avatar.url(:medium), class:"circular" %>
 			<h1><%= @user[:first_name] %> <%= @user[:last_name] %></h1>
 			
 
