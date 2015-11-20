@@ -1,14 +1,17 @@
-<div class="container">
-	<div class="row">
-		<div id="profile-info" class="col-sm-offset-1 col-sm-3 affix">
-			<%= image_tag @user.avatar.url %>
+<div class="profile-header text-center">
+  <div class="container">
+    <div class="container-inner">
+      <img class="img-circle media-object"><%= image_tag @user.avatar.url(:medium), class:"circular" %>
+      <h3 class="profile-header-user">Dave Gamache</h3>
+      <p class="profile-header-bio">
+        I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.
+      </p>
+    </div>
+  </div>
+			
 			<h1><%= @user[:first_name] %> <%= @user[:last_name] %></h1>
 
 			
-
-			<div class="circular">
-			<!-- <img src="http://placehold.it/200x200" alt="profile photo"> -->	
-			</div>
 
 			<p></p> <!-- padding -->
 <!-- 			<p>Bio</p> -->
