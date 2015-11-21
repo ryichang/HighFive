@@ -11,18 +11,17 @@ LatLng = [];
 
 
 $(function(){
+  $(document).ready(function(){
 
- $('#finder-btn').on('click', function (){ 
-   navigator.geolocation.getCurrentPosition(success, error);
+ navigator.geolocation.getCurrentPosition(success, error);
 
+ var output = document.getElementById("out");
+ if (!navigator.geolocation){
+   output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+   return;
+ }
 
-   var output = document.getElementById("out");
-   if (!navigator.geolocation){
-     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-     return;
-   }
-
-   function success(position) {
+ function success(position) {
    var latitude  = position.coords.latitude;
    var longitude = position.coords.longitude;
 
@@ -48,17 +47,16 @@ $(function(){
        console.log(LatLng[0], LatLng[1])
        console.log("Error Thrown")
      }
-   });
-
-   
-   
- };
+   })
+  }
+ })
 
  function error() {
    output.innerHTML = "Unable to retrieve your location";
  };
- });
-});
+
+})
+
 
 
 //update location for current_user
@@ -70,12 +68,12 @@ $(function(){
       // var longitude = LatLng[1]
 
 
-function geoFindMe() {
+      function geoFindMe() {
 
 
- 
 
- output.innerHTML = "<p>Locating…</p>";
+
+       output.innerHTML = "<p>Locating…</p>";
  //find-button onClick >> in success go to Database
  
 }
