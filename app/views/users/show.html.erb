@@ -2,7 +2,6 @@
 	<div class="container-fluid">
 		<!-- blue blur background -->
 
-
 <!--user image and name in panel header responsive -->
 
 		<div class="container p-t-md">
@@ -59,6 +58,25 @@
     	</li>
 		<li class="media list-group-item p-a inboxopacity">
       		<% @user.compliments_received.each do |compliment| %>
+
+			<p></p> <!-- padding -->
+<!-- 			<p>Bio</p> -->
+    		<p><strong>Join Date: </strong><small><%= time_ago_in_words(@user.created_at)%> ago</small></p>
+    		<%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %> 
+    		  <div>
+    		  	<%= form_for [@user, @compliment] do |f| %>
+    				<%= f.text_field :comment, placeholder: "Description" %>
+    				<%= f.submit "Compliment!" %>
+    			<% end %>
+  			  </div>
+
+    		</div>
+    		<p></p> <!-- padding -->
+		</div>
+		<div id="profile-data" class="col-sm-offset-5 col-sm-6">
+			<h2>Compliments</h2>
+			<% @user.compliments_received.each do |compliment| %>
+
 			<%= User.find(compliment.complimentor_id).first_name %>
 			<a class="media-left" href="#">
       			<%= image_tag @user.avatar.url(:medium), class:"usericon" %>
