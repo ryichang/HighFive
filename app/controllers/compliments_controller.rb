@@ -4,6 +4,11 @@ class ComplimentsController < ApplicationController
 		@compliment = Compliment.find(params[:id])
 	end
 
+	def new 
+		@user = User.find(params[:user_id])
+		@compliment = Compliment.new
+	end
+
 	def create
 		@user = User.find(params[:user_id])
 		@compliment = @user.compliments_received.new(compliment_params)
