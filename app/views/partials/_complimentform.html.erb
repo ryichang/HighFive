@@ -1,7 +1,5 @@
-<h3>Compliments <% if @user.compliments.any? %> (<%= @user.compliments.count %>)<% end %></h3>
-
-  <%= form_for [@user, @compliment] do |f| %>
-
+<div class="modal hide fade" id="modal" title= "My modal">
+<%= form_for [@user, @compliment] do |f| %>
   <% if @compliment.errors.any? %>
   <div class='comment-form'>
   <div id="error_explanation">
@@ -18,12 +16,15 @@
   <% end %>
 
   <p class="comment-form-title">
+    <%= f.label :"High Five" %>
+    <%= f.text_field :"high_five" %> <br> 
     <%= f.label :'New Compliments' %>
-    <%= f.text_field :feedback, class: 'form-control' %>
+    <%= f.text_field :comment, class: 'form-control' %>
   </p>
 
   <p class="comment-form-submit">
-    <%= f.submit "Post Comment", :class => 'btn btn-sm btn-primary pull-right' %>
+    <%= f.submit "High Five", :class => 'btn btn-sm btn-primary pull-right' %>
   </p>
 </div>
   <% end %>
+</div>

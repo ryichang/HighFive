@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	def new
 		@user = User.new
+		# @compliment = Compliment.new
 		render :new
 	end
 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 		render :edit
 	end
 
-	def update                
+	def update               
 		@user = User.find(session[:user_id])
 		updated_attributes = params.require(:user).permit(:first_name, :last_name, :avatar, :latitude, :longitude)
 		p "PARAMS HERE: #{updated_attributes}"
@@ -34,10 +35,6 @@ class UsersController < ApplicationController
 		redirect_to @user 
 	end
 
-	   # def index
-	   #   @user = User.new
-	   #   render :new
-	   # end
 
 	   private
 	   def user_params
