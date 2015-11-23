@@ -47,6 +47,16 @@ $(function(){
      }
    })
   }
+  $('.mdl-layout__container').on('click', '.mdl-navigation__link', function(e) {
+       e.preventDefault();
+       console.log("foobar");
+       // show/hide and do other modal things here
+       $('.modal').show()
+       $('.modal').on('click', '.cancel', function(e) {
+         e.preventDefault();
+         $('.modal').hide();
+       })
+     })
  })
 
  function error() {
@@ -73,5 +83,6 @@ $(function(){
 
        output.innerHTML = "<p>Locating…</p>";
  //find-button onClick >> in success go to Database
- 
+
+
 }

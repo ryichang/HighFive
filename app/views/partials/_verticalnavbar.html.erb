@@ -1,15 +1,32 @@
 <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="mdl-layout mdl-js-layout mdl-layout--hidden-drawer">
+
+<div data-no-turbolink class="mdl-layout mdl-js-layout mdl-layout--hidden-drawer">
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">People Near You</span>
     <nav class="mdl-navigation">
       <% @player.each do |p| %>
-      <a class="mdl-navigation__link" href="/users/<%= p.id %>/compliments/new"><%= p.first_name %></a> 
+      <a class="mdl-navigation__link" href="#"><%= p.first_name %></a> 
       <% end %> 
     </nav>
   </div>
-
-
+  <div class="modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Small modal</h4>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text...</p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="cancel btn-link modal-action" data-dismiss="modal">Cancel</button>
+          <button type="button" class="submit btn-link modal-action" data-dismiss="modal">
+            <strong>Continue</strong>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
