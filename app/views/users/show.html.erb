@@ -2,92 +2,81 @@
 	<div class="container-fluid">
 		<!-- blue blur background -->
 
-<!--user image and name in panel header responsive -->
+		<!--user image and name in panel header responsive -->
 
 		<div class="container p-t-md">
-		  <div class="row">
-		    <div class="col-md-4">
-		      <div class="panel panel-default panel-profile m-b-md">
-				<div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
-		  		<div class="panel-body text-center">  	
-		    		<img class="img-circle media-object"> <%= image_tag @user.avatar.url(:medium), class:"circular" %>
-		      	<h3 class="profile-header-user"><%= @user[:first_name] %> <%= @user[:last_name] %></h3>
-		      </div>
-		      </div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-default panel-profile m-b-md">
+						<div class="panel-heading" style="background-image: url(http://i.imgur.com/YoRr1sU.jpg)">
+							<div class="panel-body text-center">  	
+								<img class="img-circle media-object"> <%= image_tag @user.avatar.url(:medium), class:"circular" %>
+								<h3 class="profile-header-user"><%= @user[:first_name] %> <%= @user[:last_name] %></h3>
+							</div>
+						</div>
 
-      <!-- closes panel header -->
-      <!-- beginning of panel body -->
+						<!-- closes panel header -->
+						<!-- beginning of panel body -->
 
-       <!--  <div class="panel panel-default"> -->
+						<!--  <div class="panel panel-default"> -->
 
-        	<div class="panel-body">
-        	  <p>Joined: <%= time_ago_in_words(@user.created_at)%> ago</p>
-		      	<ul class="panel-menu">
-		         <li class="panel-menu-item">
-	              	<a href="#userModal" class="text-inherit" data-toggle="modal">
-	                <h5 class="m-y-0"><%=link_to "Edit profile", user_path, class:"edit" %> </h5>
-	             	</a>
-	            </li>
-            <li class="panel-menu-item">
-              <a href="#userModal" class="text-inherit" data-toggle="modal">
-               
-                <h5 class="m-y-0">Compliment Count</h5>
-                
-              </a>
-            </li>
-          </ul>
-          </div>
-        </div>
-      </div>
-   
-			
+						<div class="panel-body">
+							<p>Joined: <%= time_ago_in_words(@user.created_at)%> ago</p>
+							<ul class="panel-menu">
+								<li class="panel-menu-item">
+									<a href="#userModal" class="text-inherit" data-toggle="modal">
+
+									 <% if @user.id == current_user.id %> 
+										<h5 class="m-y-0"><%=link_to "Edit profile", edit_user_path, class:"edit" %> </h5>
+									 <% end %>
+									</a>
+								</li>
+								<li class="panel-menu-item">
+									<a href="#userModal" class="text-inherit" data-toggle="modal">
+
+										<h5 class="m-y-0">Compliment Count: <%=@user.compliments_received.count%></h5>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
  <!-- Beginning of Compliment container ==============
  ====  Stores users first name and message history --> 
 
-  <div class="col-md-8">
-	<ul class="list-group media-list media-list-stream">
-		<li class="media list-group-item p-a inboxopacity">
-			<div class="inbox text-center">INBOX</div>
-		</li>
-		<li class="media list-group-item p-a inboxopacity">
-  			<%= form_for [@user, @compliment] do |f| %>
-			<%= f.text_field :comment, placeholder: "Description", class:"form-control" %>
-			<%= f.submit "Compliment!", class:"btn btn-default" %>
-			<% end %>
-			<%= button_to "Add New Post", user_id: @user.id, :method => 'get', class:"btn btn-primary" %>
-    	</li>
-		<li class="media list-group-item p-a inboxopacity">
-      		<% @user.compliments_received.each do |compliment| %>
+ <div class="col-md-8">
+ 	<ul class="list-group media-list media-list-stream">
+ 		<li class="media list-group-item p-a inboxopacity">
+ 			<div class="inbox text-center">INBOX</div>
+ 		</li>
+ 		<li class="media list-group-item p-a inboxopacity">
+ 			<%= form_for [@user, @compliment] do |f| %>
+ 			<%= f.text_field :comment, placeholder: "Description", class:"form-control" %>
+ 			<%= f.submit "Compliment!", class:"btn btn-default" %>
+ 			<% end %>
+ 		</li>
+ 	</ul>
+ </div>
+ <div id="profile-data" class="col-sm-offset-4 col-sm-6">
+ <h2>Compliments</h2>
 
-			<p></p> <!-- padding -->
-<!-- 			<p>Bio</p> -->
-    		<p><strong>Join Date: </strong><small><%= time_ago_in_words(@user.created_at)%> ago</small></p>
-    		<%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %> 
-    		  <div>
-    		</div>
-    		<p></p> <!-- padding -->
-		</div>
-		<div id="profile-data" class="col-sm-offset-5 col-sm-6">
-			<h2>Compliments</h2>
-			<% @user.compliments_received.each do |compliment| %>
-
-			<%= User.find(compliment.complimentor_id).first_name %>
-			<a class="media-left" href="#">
-      			<%= image_tag @user.avatar.url(:medium), class:"usericon" %>
-     		</a>
-     		<div class="media-body">
-     		
-			<%= compliment.comment %>
-			<% end %>
-        	
-          	<small class="pull-right text-muted">4 min</small>
-          	
-       		</div>
-	  	</div>
- 	 </div>
-    </div>
+ 	<ul class="list-group media-list media-list-stream">
+ 		<% @user.compliments_received.each do |compliment| %>
+ 		<a class="media-left" href="#">
+ 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %><span><%= User.find(compliment.complimentor_id).first_name %></span><span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
+ 		</a>
+ 		<br>
+ 		<div class="media-body">
+ 			<%= compliment.comment %>
+ 			<% end %>
+ 		</div>
+ 	</ul>
+ </div>
 </div>
-<body>
+</body>
 
 
 
