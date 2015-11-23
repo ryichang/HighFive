@@ -4,10 +4,10 @@
  <h1>Welcome Back</h1>
    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
      <div>
-       <%= f.text_field :email, placeholder: "Email", class:'form-control' %>
+       <%= f.text_field :email, placeholder: "Email", class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
      </div>
      <div>
-       <%= f.password_field :password, placeholder: "Password", class:'form-control' %>
+       <%= f.password_field :password, placeholder: "Password", class:'form-control', :required => true, :minlength => '3' %>
      </div>
      <%= f.submit "Submit", class:"btn btn-danger" %>
    <% end %>   
