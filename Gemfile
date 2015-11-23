@@ -36,8 +36,8 @@ gem 'geocoder'
 # Underscore
 gem 'underscore-rails'
 
-# Google API 
-gem 'gmaps4rails'
+#Gon 
+gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
