@@ -4,7 +4,7 @@
     <span class="mdl-layout-title">People Near You</span>
     <nav class="mdl-navigation">
       <% @player.each do |p| %>
-      <a class="mdl-navigation__link" href="/users/<%= p.id %>/compliments/new"><%= p.first_name %></a>
+     <a class="mdl-navigation__link" href="/users/<%= p.id %>/compliments/new"><%= p.first_name %></a>
       <% end %> 
     </nav>
   </div>

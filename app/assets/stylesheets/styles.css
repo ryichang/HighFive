@@ -14,6 +14,8 @@ span {
 li {
 	color: #000;
 	display: inline-block;
+	padding: 0px;
+	margin: 0;
 }
 
 .navbar {
@@ -56,7 +58,14 @@ img {
 	width: 100%;
 }
 
+img.usericon {
+	
+}
 
+.list-group {
+	color: #000;
+	padding: 0px;
+}
 .title {
 	width: 100%;
 	padding: 5%;
@@ -69,6 +78,16 @@ img {
 	color: #fff;
 }
 
+hr {
+	min-width: 100%;
+	padding: 0px;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+ span {
+ 	color: #666;
+ }
 .subtitle {
 	font-size: 36px;
 }
@@ -86,7 +105,9 @@ img {
 	height: 30px;
 	border-radius: 50%;
 }
-
+span.mdl-layout-title {
+	color: #fff;
+}
 .usericon {
 	margin: 0 auto;
 	width: 35px;
@@ -96,6 +117,7 @@ img {
 
 .joinedat {
 	padding-left: 10px;
+	color: #000;
 }
 
 .profile-header-user {
@@ -165,18 +187,29 @@ a.logo navbar-brand {
 
 }
 
+.messageBorder {
+	border-bottom: 1px solid #8ADBBC;
+	width: 100%;
+}
+
 i.fa.fa-map-o {
 	color: #fff;
 }
 
-i.fa.fa-map:hover {
+i.fa.fa-map-o:hover {
 	color: #0095FF;
 }
 
-i.fa.fa-map:active {
+i.fa.fa-map-o:active {
 	color: #0095FF;
 }
 
+li.media.list-group-item.p-a {
+	width: 100%;
+	padding: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+}
 input#user_first_name.form-control,
 input#user_last_name.form-control,
 input#user_email.form-control,
