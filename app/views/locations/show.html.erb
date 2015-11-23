@@ -1,117 +1,132 @@
+<% content_for :head do %> 
+<script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
+<% end %> 
+
 <%= render partial: 'partials/verticalnavbar' %>
 
 
 
 
-    <div id="out" class="col-xs-10 col-xs-offset-1 row text-center"></div>
+<div id="out" class="col-xs-10 col-xs-offset-1 row text-center"></div>
 
 
 <div>
   <div id="map" style='width: 1150px; height: 530px;'></div>
 </div>
 
-<script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
+
 
 <script type="text/javascript">
-
-function initialize() {
-     var map = new google.maps.Map(document.getElementById('map'), {
+ 
+  function initialize() {
+   
+    var map = new google.maps.Map(document.getElementById('map'), {
      zoom: 10,
      zoomControl: false,
-  	 scaleControl: false,
+     scaleControl: false,
      scrollwheel: false,
      disableDoubleClickZoom: true,
-      center: new google.maps.LatLng(37.790841, -122.42),
-      styles: [{"featureType":"administrative","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#2ecfc1"},{"visibility":"on"}]}]
+     center: new google.maps.LatLng(37.790841, -122.42),
+     styles: [{"stylers":[{"visibility":"on"},{"saturation":-100},{"gamma":0.54}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#4d4946"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"simplified"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"gamma":0.48}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"gamma":7.18}]}]
+   });
+
+if (navigator.geolocation) {
+ navigator.geolocation.getCurrentPosition(function (position) {
+   initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+   map.setCenter(initialLocation);
+   map.setZoom(18);
+       // function success(position) {
+       //   var latitude  = position.coords.latitude;
+       // var longitude = position.coords.longitude;
+       // var currentUserId = $(this).attr('data-id');
+       // $.ajax({
+       // url: '/users/' + currentUserId,
+       // data: { user: { latitude: latitude, longitude: longitude} },
+       // // dataType: 'json',
+       // type: 'patch',
+       // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+       // success: function(data) {
+       //   console.log("Patch Succesful!");
+       // },
+       // error: function(err) {
+       //   // console.log(latitude)
+       //   console.log(LatLng[0], LatLng[1]);
+       //   console.log("Error Thrown");
+       // }
+    // });
+  // }
+
+  var marker = new google.maps.Marker({
+      // icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569',
+      position: initialLocation,
+      animation: google.maps.Animation.DROP,
+      map: map
     });
 
-     if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function (position) {
-             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-             map.setCenter(initialLocation);
-             map.setZoom(18);
-	     function success(position) {
-	   	   var latitude  = position.coords.latitude;
-		   var longitude = position.coords.longitude;
-		   var currentUserId = $(this).attr('data-id');
-		   $.ajax({
-	     url: '/users/' + currentUserId,
-	     data: { user: { latitude: latitude, longitude: longitude} },
-	     // dataType: 'json',
-	     type: 'patch',
-	     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-	     success: function(data) {
-	       console.log("Patch Succesful!");
-	     },
-	     error: function(err) {
-	       // console.log(latitude)
-	       console.log(LatLng[0], LatLng[1]);
-	       console.log("Error Thrown");
-	     }
- 		});
-	}
+  var infowindow = new google.maps.InfoWindow({
+   content: "You are here"
+ });
+  infoBubble = new InfoBubble({
+    content: '<div class="center-block" id="centerthis"><img id ="marker-profile-photo" src="' + profilePhoto + '"></div>',
+    minWidth: 105,
+    minHeight: 105,
+    shadowStyle: 1,
+    backgroundColor: 'rgb(57,57,57)',
+    borderRadius: 75,
+    borderWidth: 1,
+    borderColor: '#2c2c2c',
+    arrowStyle: 0
+  });
+
+  infoBubble.open(map, marker);
 });
-    var marker = new google.maps.Marker({
-    	icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
-        position: initialLocation,
-    	animation: google.maps.Animation.DROP,
-        map: map
-    });
-       var infowindow = new google.maps.InfoWindow({
-     content: "You are here"
-  	 });
-       infoBubble = new InfoBubble({
-  	 			content: '<div class="center-block" id="centerthis"><img id ="marker-profile-photo" src="' + profilePhoto + '"></div>',
-  	 			minWidth: 105,
-  	 			minHeight: 105,
-  	 			shadowStyle: 1,
-  	 			backgroundColor: 'rgb(57,57,57)',
-  	 			borderRadius: 75,
-  	 			borderWidth: 1,
-  	 			borderColor: '#2c2c2c',
-  	 			arrowStyle: 0
-			 });
 
-			infoBubble.open(map, marker);
-}
-     loadData();
-     function loadData (){
+loadData();
+function loadData (){
   gon.users.forEach(function(user){
-     var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
+    console.log(user);
+     // var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
+
      var marker = new google.maps.Marker({
-     	icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
-         position: locationLatLong,
+      position: {lat: user.latitude, lng: user.longitude},
+      icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
+         // position: locationLatLong,
          map: map
 
-     });
+       });
+     console.log(marker)
 
-       marker.addListener('click', function() {
-     infowindow.open(map, marker);
-   });     
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });     
 
-       google.maps.event.addListener(marker, 'click', function() {
+     google.maps.event.addListener(marker, 'click', function() {
        $('#showEvents').empty();
-      
-	       gon.quickEvents.forEach(function(e){
-	         if (e.location_id == location.id) {
-	           $('#showEvents').slideDown( "slow", function() {
-	          // Animation complete.
 
-	            // When marker clicked, append event content to bottom of page and add class to div for location id
-	         $('#showEvents').append('<p>' + gon.locations[e.location_id].name + '</p>' + '<p>' + e.content + '</p>').addClass('' + e.location_id + '');
+       gon.quickEvents.forEach(function(e){
+         if (e.location_id == location.id) {
+           $('#showEvents').slideDown( "slow", function() {
+            // Animation complete.
 
-	         });
-	         } 
-	       });
-     	});
+             // When marker clicked, append event content to bottom of page and add class to div for location id
+             $('#showEvents').append('<p>' + gon.locations[e.location_id].name + '</p>' + '<p>' + e.content + '</p>').addClass('' + e.location_id + '');
+
+           });
+         } 
+       });
      });
+   });
 }
- }
+
+
+}
+
+}
 
  // Go to location page when event is clicked on
  $('#showEvents').on('click', function() {
-    window.location.href = '/users/' + $(this).attr('class');
- });
+  window.location.href = '/users/' + $(this).attr('class');
+});
 
-google.maps.event.addDomListener(window, 'load', initialize);
+ google.maps.event.addDomListener(window, 'load', initialize);
 </script> 
