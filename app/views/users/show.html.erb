@@ -1,6 +1,5 @@
-<body class="backgroundblur">
+
 	<div class="container-fluid">
-		<!-- blue blur background -->
 
 		<!--user image and name in panel header responsive -->
 
@@ -47,36 +46,34 @@
  <!-- Beginning of Compliment container ==============
  ====  Stores users first name and message history --> 
 
- <div class="col-md-8">
- 	<ul class="list-group media-list media-list-stream">
- 		<li class="media list-group-item p-a">
- 			<div class="inbox text-center">INBOX</div>
- 		</li>
- 		<li class="media list-group-item p-a">
+	 <div class="col-md-8">
+	 	<ul class="list-group media-list media-list-stream">
+	 		<li class="media list-group-item p-a">
+	 			<div class="inbox text-center">INBOX</div>
+	 		</li>
+	 		<li class="media list-group-item p-a">
+			<a class="media-left" href="#">
+	 		<% @user.compliments_received.each do |compliment| %>
+	 		
+	 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %>
+	 		
+	 		<span><%= User.find(compliment.complimentor_id).first_name %></span> 
+	 		</a>
+			
+	 		<a class="media-right pull-right">
+	 		<span class="time"> <span class="glyphicon glyphicon-time"><%= time_ago_in_words(compliment.created_at)%> ago</span>
+	 		</a>
+	 			<div class="messageBorder"><%= compliment.comment %></div>
+	 			
+	 			<% end %>
+	 			</span>
+	 			</a>
+	 			
+	 	</ul>
+ 	  </div>
+	</div>
 
- 		<% @user.compliments_received.each do |compliment| %>
- 		<a class="media-left" href="#">
- 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %>
- 		</a>
- 		<span><%= User.find(compliment.complimentor_id).first_name %></span>
- 		<a class="media-right" href="#">
- 		<span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
- 		</a>
-
- 		
- 		
- 			<%= compliment.comment %>
- 			<% end %>
- 			<hr>
- 		
-
- 		</li>
- 		
- 	</ul>
- 	</div>
 </div>
-
- </div>
 </div>
 </body>
 
