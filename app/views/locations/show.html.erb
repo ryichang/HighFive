@@ -7,7 +7,7 @@
 
 
 <div>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+  <div id="map" style='width: 1150px; height: 530px;'></div>
 </div>
 
 <script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
@@ -16,48 +16,95 @@
 
 function initialize() {
      var map = new google.maps.Map(document.getElementById('map'), {
-     zoom: 14,
+     zoom: 10,
+     zoomControl: false,
+  	 scaleControl: false,
+     scrollwheel: false,
+     disableDoubleClickZoom: true,
       center: new google.maps.LatLng(37.790841, -122.42),
-      styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
+      styles: [{"featureType":"administrative","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#2ecfc1"},{"visibility":"on"}]}]
     });
 
      if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
              initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
              map.setCenter(initialLocation);
-             map.setZoom(16);
-
-
-
+             map.setZoom(18);
+	     function success(position) {
+	   	   var latitude  = position.coords.latitude;
+		   var longitude = position.coords.longitude;
+		   var currentUserId = $(this).attr('data-id');
+		   $.ajax({
+	     url: '/users/' + currentUserId,
+	     data: { user: { latitude: latitude, longitude: longitude} },
+	     // dataType: 'json',
+	     type: 'patch',
+	     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	     success: function(data) {
+	       console.log("Patch Succesful!");
+	     },
+	     error: function(err) {
+	       // console.log(latitude)
+	       console.log(LatLng[0], LatLng[1]);
+	       console.log("Error Thrown");
+	     }
+ 		});
+	}
+});
     var marker = new google.maps.Marker({
-    	icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000',
+    	icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
         position: initialLocation,
     	animation: google.maps.Animation.DROP,
         map: map
     });
-      var infowindow = new google.maps.InfoWindow({
-    content: "You are here"
-  });
-      marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });     
+       var infowindow = new google.maps.InfoWindow({
+     content: "You are here"
+  	 });
+       infoBubble = new InfoBubble({
+  	 			content: '<div class="center-block" id="centerthis"><img id ="marker-profile-photo" src="' + profilePhoto + '"></div>',
+  	 			minWidth: 105,
+  	 			minHeight: 105,
+  	 			shadowStyle: 1,
+  	 			backgroundColor: 'rgb(57,57,57)',
+  	 			borderRadius: 75,
+  	 			borderWidth: 1,
+  	 			borderColor: '#2c2c2c',
+  	 			arrowStyle: 0
+			 });
 
-      google.maps.event.addListener(marker, 'click', function() {
-      $('#showEvents').empty();
+			infoBubble.open(map, marker);
+}
+     loadData();
+     function loadData (){
+  gon.users.forEach(function(user){
+     var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
+     var marker = new google.maps.Marker({
+     	icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
+         position: locationLatLong,
+         map: map
+
+     });
+
+       marker.addListener('click', function() {
+     infowindow.open(map, marker);
+   });     
+
+       google.maps.event.addListener(marker, 'click', function() {
+       $('#showEvents').empty();
       
-      gon.quickEvents.forEach(function(e){
-        if (e.location_id == location.id) {
-          $('#showEvents').slideDown( "slow", function() {
-          // Animation complete.
+	       gon.quickEvents.forEach(function(e){
+	         if (e.location_id == location.id) {
+	           $('#showEvents').slideDown( "slow", function() {
+	          // Animation complete.
 
-          // When marker clicked, append event content to bottom of page and add class to div for location id
-          $('#showEvents').append('<p>' + gon.locations[e.location_id].name + '</p>' + '<p>' + e.content + '</p>').addClass('' + e.location_id + '');
+	            // When marker clicked, append event content to bottom of page and add class to div for location id
+	         $('#showEvents').append('<p>' + gon.locations[e.location_id].name + '</p>' + '<p>' + e.content + '</p>').addClass('' + e.location_id + '');
 
-        });
-        } 
-      });
-    });
-    });
+	         });
+	         } 
+	       });
+     	});
+     });
 }
  }
 
