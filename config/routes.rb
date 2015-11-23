@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :edit, :update] do 
     resources :compliments, only:[:new , :create , :show] 
-    end 
+  end 
 
   get '/sign_in', to: 'sessions#new', as: 'new_session'
 
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   get 'locations/:city_id/new' , to: 'locations#new'
 
   
-  end
+end
 
-  
+
