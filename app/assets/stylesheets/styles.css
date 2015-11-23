@@ -7,9 +7,46 @@ body {
 	font-family: 'Asap', sans-serif;
 }
 
+li {
+	color: #a8e9f3;
+}
+.navbar {
+	width: 100%;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding: 0px;
+}
+
+#nav {
+	background-color: #a8e9f3;
+	min-width: 100%;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	border: none;
+}
+
+.whitenav {
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+}
+
 .title {
 	font-size: 60px;
-
+	margin-top: -35%;
+	z-index:2;
 }
 
 .subtitle {
@@ -30,6 +67,9 @@ body {
 	border-radius: 50%;
 }
 
+.joinedat {
+	padding-left: 10px;
+}
 .profile-header-user {
 	margin-top: 0px;
 	font-weight: 300;
@@ -50,6 +90,10 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }*/
+
+#carousel-example-generic {
+	z-index: -2;
+}
 
 .container-fluid {
 	margin-left: 0px;
