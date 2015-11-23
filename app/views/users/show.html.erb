@@ -49,10 +49,10 @@
 
  <div class="col-md-8">
  	<ul class="list-group media-list media-list-stream">
- 		<li class="media list-group-item p-a inboxopacity">
+ 		<li class="media list-group-item p-a">
  			<div class="inbox text-center">INBOX</div>
  		</li>
- 		<li class="media list-group-item p-a inboxopacity">
+ 		<li class="media list-group-item p-a">
 
  		<% @user.compliments_received.each do |compliment| %>
  		<a class="media-left" href="#">
@@ -61,19 +61,20 @@
  		<span><%= User.find(compliment.complimentor_id).first_name %></span>
  		<a class="media-right" href="#">
  		<span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
- 		</div>
-
  		</a>
- 		<br>
+
+ 		
  		
  			<%= compliment.comment %>
  			<% end %>
- 		</div>
+ 			<hr>
+ 		
 
  		</li>
  		
  	</ul>
- </div>
+ 	</div>
+</div>
 
  </div>
 </div>
