@@ -25,7 +25,10 @@
 							<ul class="panel-menu">
 								<li class="panel-menu-item">
 									<a href="#userModal" class="text-inherit" data-toggle="modal">
+
+									 <% if @user.id == current_user.id %> 
 										<h5 class="m-y-0"><%=link_to "Edit profile", edit_user_path, class:"edit" %> </h5>
+									 <% end %>
 									</a>
 								</li>
 								<li class="panel-menu-item">
@@ -59,17 +62,16 @@
  </div>
  <div id="profile-data" class="col-sm-offset-4 col-sm-6">
  <h2>Compliments</h2>
+
  	<ul class="list-group media-list media-list-stream">
  		<% @user.compliments_received.each do |compliment| %>
  		<a class="media-left" href="#">
- 			<%= image_tag @user.avatar.url(:medium), class:"usericon" %><span><%= User.find(compliment.complimentor_id).first_name %></span><span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
+ 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %><span><%= User.find(compliment.complimentor_id).first_name %></span><span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
  		</a>
  		<br>
  		<div class="media-body">
  			<%= compliment.comment %>
-
  			<% end %>
-
  		</div>
  	</ul>
  </div>
