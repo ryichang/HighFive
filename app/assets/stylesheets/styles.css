@@ -7,9 +7,66 @@ body {
 	font-family: 'Asap', sans-serif;
 }
 
-.title {
-	font-size: 60px;
+span {
+	color: #fff;
+}
 
+li {
+	color: #000;
+	display: inline-block;
+}
+
+.navbar {
+	width: 100%;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding: 0px;
+}
+.btn {
+	margin-top: 20px;
+	background-color: #DB0065;
+}
+i.fa.fa-icon {
+	color: #fff;
+}
+
+#nav {
+	background-color: #000;
+	min-width: 100%;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	border: none;
+}
+
+a.whitenav {
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+}
+
+
+.title {
+	width: 100%;
+	padding: 5%;
+	margin: 20px 20px 20px 20px;
+	font-size: 36px;
+	margin-top: -150%;
+	font-weight: normal;
+	z-index:2;
+	border-radius: 2px;
+	color: #fff;
 }
 
 .subtitle {
@@ -23,11 +80,22 @@ body {
 	border-radius: 50%;
 }
 
+.miniavatar {
+	margin: 10px -10px auto;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
 .usericon {
 	margin: 0 auto;
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;
+}
+
+.joinedat {
+	padding-left: 10px;
 }
 
 .profile-header-user {
@@ -42,14 +110,14 @@ body {
 	font-size: 24px;
 }
 
-/*.backgroundblur {
+.subwaybackground {
   width: 100%;
-  background: url(http://i.imgur.com/n2knzzo.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
+  height: 600px;
+ }
+
+#carousel-example-generic {
+	z-index: -2;
+}
 
 .container-fluid {
 	margin-left: 0px;
@@ -57,6 +125,65 @@ body {
 	padding: 0;
 }
 
-.inboxopacity {
-	background-color: rgba(255,255,255,0.8);
+.navbar {
+	  color: #fff;
+}
+
+a.logo navbar-brand {
+	color:#fff;
+}
+.navbar-brand {
+  color: #fff;
+  font-family: 'Fira Sans', sans-serif;
+  font-style: italic;
+}
+
+.form-control {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-radius: 3px;
+  border-bottom: 1px solid #FFCB00;
+  box-shadow: none !important;
+  margin-top: 1px;
+  border-radius: 0px;
+  background-color: rgba(255,255,255,.3)
+}
+
+.form-control:active {
+
+}
+.colorform {
+  border-radius: 5px;
+  padding-top: 3%;
+  height: auto;
+  color:  #000;
+  box-shadow: none;
+  margin-top: 20px;
+  margin-bottom: 15%;
+  background-size: cover;
+
+}
+
+i.fa.fa-map-o {
+	color: #fff;
+}
+
+i.fa.fa-map:hover {
+	color: #0095FF;
+}
+
+i.fa.fa-map:active {
+	color: #0095FF;
+}
+
+input#user_first_name.form-control,
+input#user_last_name.form-control,
+input#user_email.form-control,
+input#user_password.form-control {
+	background-color: transparent;
+}
+
+input {
+	background-color: transparent;
 }

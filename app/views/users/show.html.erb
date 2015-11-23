@@ -21,7 +21,7 @@
 						<!--  <div class="panel panel-default"> -->
 
 						<div class="panel-body">
-							<p>Joined: <%= time_ago_in_words(@user.created_at)%> ago</p>
+							<p class="joinedat">Joined: <%= time_ago_in_words(@user.created_at)%> ago</p>
 							<ul class="panel-menu">
 								<li class="panel-menu-item">
 									<a href="#userModal" class="text-inherit" data-toggle="modal">
@@ -49,36 +49,36 @@
 
  <div class="col-md-8">
  	<ul class="list-group media-list media-list-stream">
- 		<li class="media list-group-item p-a inboxopacity">
+ 		<li class="media list-group-item p-a">
  			<div class="inbox text-center">INBOX</div>
  		</li>
- 		<li class="media list-group-item p-a inboxopacity">
- 			<%= form_for [@user, @compliment] do |f| %>
- 			<%= f.text_field :comment, placeholder: "Description", class:"form-control" %>
- 			<%= f.submit "Compliment!", class:"btn btn-default" %>
- 			<% end %>
- 		</li>
- 	</ul>
- </div>
- <div id="profile-data" class="col-sm-offset-4 col-sm-6">
- <h2>Compliments</h2>
+ 		<li class="media list-group-item p-a">
 
- 	<ul class="list-group media-list media-list-stream">
  		<% @user.compliments_received.each do |compliment| %>
  		<a class="media-left" href="#">
- 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %><span><%= User.find(compliment.complimentor_id).first_name %></span><span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
+ 			<%= image_tag User.find(compliment.complimentor_id).avatar.url(:medium), class:"usericon" %>
  		</a>
- 		<br>
- 		<div class="media-body">
+ 		<span><%= User.find(compliment.complimentor_id).first_name %></span>
+ 		<a class="media-right" href="#">
+ 		<span class="time"> <span class="glyphicon glyphicon-time"></span><%= time_ago_in_words(compliment.created_at)%> ago</span>
+ 		</a>
+
+ 		
+ 		
  			<%= compliment.comment %>
  			<% end %>
- 		</div>
+ 			<hr>
+ 		
+
+ 		</li>
+ 		
  	</ul>
+ 	</div>
+</div>
+
  </div>
 </div>
 </body>
-
-
 
 
 
