@@ -20,7 +20,7 @@
        <% if logged_in? %>
        <% @user = current_user %> 
       <li><a href="/users/<%=@user.id%>"><i class="fa fa-user"></i><%= " #{@user.first_name}" %></a></li>
-      <li><a href="/locations/<%=@user.id%>"><i class="fa fa-map-o"></i></a></li>
+      <li><a href="/locations/<%=@current_user.id%>"><i class="fa fa-map-o"></i></a></li>
        <li><%= link_to "Log out", logout_path %></li>
      <% else %> 
        <li><%= link_to "Log in",  new_session_path, method: :get %></li>

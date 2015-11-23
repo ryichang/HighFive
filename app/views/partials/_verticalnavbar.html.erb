@@ -1,12 +1,15 @@
 <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+<div class="mdl-layout mdl-js-layout mdl-layout--hidden-drawer">
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">People Near You</span>
     <nav class="mdl-navigation">
       <% @player.each do |p| %>
-      <a class="mdl-navigation__link" href="/users/<%= p.id %>/compliments/new"><%= p.first_name %></a>
+      <a class="mdl-navigation__link" href="/users/<%= p.id %>/compliments/new"><%= p.first_name %></a> 
       <% end %> 
     </nav>
   </div>
+
+
 </div>
+
 
