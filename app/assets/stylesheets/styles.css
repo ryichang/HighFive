@@ -78,16 +78,22 @@ img.usericon {
 	color: #fff;
 }
 
+/*.count {
+	margin-left: -18%;
+}
+*/
 hr {
 	min-width: 100%;
 	padding: 0px;
-	margin-left: 0;
-	margin-right: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	color: #999;
 }
 
  span {
- 	color: #666;
+ 	color: #999;
  }
+
 .subtitle {
 	font-size: 36px;
 }
@@ -205,8 +211,8 @@ i.fa.fa-map-o:active {
 }
 
 li.media.list-group-item.p-a {
-	width: 100%;
-	padding: 0;
+	
+	padding: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
 }

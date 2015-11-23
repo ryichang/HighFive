@@ -33,7 +33,7 @@
 								<li class="panel-menu-item">
 									<a href="#userModal" class="text-inherit" data-toggle="modal">
 
-										<h5 class="m-y-0">Compliment Count: <%=@user.compliments_received.count%></h5>
+										<h5 class="m-y-0 count">Compliment Count: <%=@user.compliments_received.count%></h5>
 
 									</a>
 								</li>
@@ -60,11 +60,10 @@
 	 		<span><%= User.find(compliment.complimentor_id).first_name %></span> 
 	 		</a>
 			
-	 		<a class="media-right pull-right">
-	 		<span class="time"> <span class="glyphicon glyphicon-time"><%= time_ago_in_words(compliment.created_at)%> ago</span>
-	 		</a>
-	 			<div class="messageBorder"><%= compliment.comment %></div>
-	 			
+	 		<div class="media-right pull-right">
+	 		<span class="time"><%= time_ago_in_words(compliment.created_at)%> ago</span>
+	 		</div>
+	 			<%= compliment.comment %><hr>
 	 			<% end %>
 	 			</span>
 	 			</a>
