@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
 	end
 
 	def show
-		@player = User.all 
+		@player = User.all.where.not(id: current_user.id) 
 		@user = User.find(session[:user_id])
 	end
 
