@@ -23,7 +23,7 @@
        <% @user = current_user %> 
 
        <li><img class="img-circle media-object"> <%= image_tag @user.avatar.url(:medium), class:"miniavatar" %></li>
-      <li><a href="/users/<%=@user.id%>"><%= " #{@user.first_name}"%></a></li>
+      <li><a href="/users/<%=@user.id%>"><%= " #{@user.first_name}"%><span class="badge"><%=@complimentupdate%></span></a></a></li>
       <li><a href="/locations/<%=@user.id%>" data-no-turbolinks="true"><i class="fa fa-map-o"></i></a></li>
 
        <li><%= link_to "Log out", logout_path %></li>

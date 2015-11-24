@@ -2,6 +2,8 @@ class ComplimentsController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@compliment = Compliment.find(params[:id])
+		# @complimentupdate = Compliment.where(created_at: (Time.now - 5.minutes)..Time.now).count.to_i
+
 	end
 
 	def new 
@@ -20,10 +22,10 @@ class ComplimentsController < ApplicationController
 		p "NEW compliment" * 100
 		p @compliment
 		if @compliment.save
-			redirect_to @user
+			redirect_to location_path(@user)
 		else
 			# @user = User.find(params[:user_id])
-			render 'users/show'
+			render :new
 		end
 	end
 
