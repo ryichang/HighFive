@@ -2,7 +2,7 @@ class ComplimentsController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@compliment = Compliment.find(params[:id])
-		@complimentupdate = Compliment.where(created_at: (Time.now - 2.hour)..Time.now).count.to_i
+		# @complimentupdate = Compliment.where(created_at: (Time.now - 5.minutes)..Time.now).count.to_i
 
 	end
 

@@ -8,6 +8,7 @@ class LocationsController < ApplicationController
 	def show
 		@player = User.all.where.not(id: current_user.id) 
 		@user = User.find(session[:user_id])
+		@complimentupdate = Compliment.where(created_at: (Time.now - 5.minutes)..Time.now).count.to_i
 		gon.users = User.all
 		pictures = Hash.new
 		User.all.each do |user|
