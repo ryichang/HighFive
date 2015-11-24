@@ -155,6 +155,11 @@ i.material-icons {
       animation: fadeIn 3.3s forwards;  
 }
 
+#compliment_comment {
+	border-bottom: 1px solid #fff;
+	color: #fff;
+}
+
 .howto {
 	margin-bottom: 8%;
 }
@@ -174,20 +179,17 @@ i.material-icons {
 }
 
 .right {
-	border-bottom: 2px solid #999;
-	border-right: 2px solid #999;
-	margin-bottom: 10%;
+
+	margin-bottom: 15%;
 }
 
 .middle {
-	border-bottom: 2px solid #999;
-	margin-bottom: 10%;
+
+	margin-bottom: 15%;
 }
 
 .left {
-	border-bottom: 2px solid #999;
-	border-left: 2px solid #999;
-	margin-bottom: 10%;
+	margin-bottom: 15%;
 }
 
 hr {
@@ -264,6 +266,13 @@ input.useravatar {
 	margin-left: 0px;
 	margin-right: 0;
 	padding: 0;
+}
+
+.label {
+	margin-top: 20%;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 300;
 }
 
 .logo {
@@ -370,8 +379,12 @@ input#user_last_name.form-control,
 input#user_email.form-control,
 input#user_password.form-control {
 	background-color: transparent;
+	color: #A8A8A8;
 }
 
+p.steps {
+	font-size: 21px;
+}
 input {
 	background-color: transparent;
 }
@@ -388,6 +401,25 @@ input {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.colorform {
+  border-radius: 3px;
+  padding-top: 3%;
+  height: 350px;
+  color: #fff;
+  background-color: #000;
+  box-shadow: 5px 10px #000;
+  box-shadow: none;
+  margin-top: 5%;
+}
+
+.compliment {
+	font-size: 24px;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 /* ===== MEDIA QUERIES ==== */
@@ -423,8 +455,11 @@ input {
 	h3 {
 		font-size: 18px;
 		max-width: 300px;
-		padding-left: 50px;
+		
 		
 	}
+
+	.miniavatar {
+	display: none;
 
 }
