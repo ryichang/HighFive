@@ -75,7 +75,60 @@
 
 </div>
 </div>
+
+<div class="modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Compliment</h4>
+      </div>
+      <div class="modal-body">
+     <%= form_for @user do |f| %>
+         <div>
+             <p>First Name:</p>
+                 <%= f.text_field :first_name, :class => 'form-control' %>
+         </div>
+         </br>
+         <div>
+             <p>Last Name:</p>
+                 <%= f.text_field :last_name, :class => 'form-control' %>
+         </div>
+         <div>
+             <p>Update Picture:</p>
+                 <%= f.file_field :avatar %>
+         </div>
+         </br>
+         <small><em></em></small>
+         <%= f.submit "update", class:"btn btn-primary"%>
+     <% end %>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="cancel btn-link modal-action" data-dismiss="modal">Cancel</button>
+        <button type="button" class="submit btn-link modal-action" data-dismiss="modal">
+          <strong>Continue</strong>
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
+<script type= "text/javascript">
+$(document).ready(function(){
+
+	  console.log("on")
+	  //.mdl-layout__container
+	  $('body').on('click', '.m-y-0', function(e) {
+	       e.preventDefault();
+	       console.log("foobar");
+	       // show/hide and do other modal things here
+	       $('.modal').show()
+	       $('.modal').on('click', '.cancel', function(e) {
+	         e.preventDefault();
+	         $('.modal').hide();
+	       })
+	     })
+
+})
+</script>
 
 
 
