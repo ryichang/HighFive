@@ -6,7 +6,6 @@
 
 
 
-
 <div id="out" class="col-xs-10 col-xs-offset-1 row text-center"></div>
 
 
@@ -128,5 +127,30 @@ function loadData (){
   window.location.href = '/users/' + $(this).attr('class');
 });
 
- google.maps.event.addDomListener(window, 'load', initialize);
-</script> 
+google.maps.event.addDomListener(window, 'load', initialize);
+
+// $(document).ready(function(){
+  function addModalListeners() {
+  console.log("on")
+  //.mdl-layout__container
+  $('body').on('click', '.mdl-navigation__link', function(e) {
+       e.preventDefault();
+       console.log("foobar");
+       // show/hide and do other modal things here
+       $('.modal').show()
+       $('.modal').on('click', '.cancel', function(e) {
+         e.preventDefault();
+         $('.modal').hide();
+       })
+     })
+}
+// })
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function ready() {
+  addModalListeners();
+};
+</script>
+
+
