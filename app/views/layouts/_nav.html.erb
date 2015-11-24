@@ -24,7 +24,7 @@
       <li><a href="/locations/<%=@user.id%>" data-no-turbolinks="true"><i class="fa fa-map-o"></i></a></li>
        <li><%= link_to "Log out", logout_path %></li>
      <% else %> 
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
          <ul id="login-dp" class="dropdown-menu pull-right">
                  <div class="form-group">
                      <%= form_for @user, url: "/sessions", method: "post" do |f| %>
@@ -64,14 +64,15 @@
               <br>
               <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control',:required => true, :minlength => '1' %> 
               <br> 
-              <%= f.file_field :avatar %>
-             <br> 
+                           <br> 
               <%= f.label :email %> 
               <%= f.text_field :email, class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
               <br>
               <%= f.label :password %> 
               <%= f.password_field :password, class:'form-control',:required => true , :minlength => '3' %>
               <br>
+              <%= f.file_field :avatar %>
+             <br> 
               <div class="text-right">
                   <%= f.submit "Sign Up", class: 'btn btn-primary btn-block' %> 
               </div>
