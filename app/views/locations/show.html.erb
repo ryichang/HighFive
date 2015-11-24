@@ -8,7 +8,6 @@
 
 
 
-
 <div id="out" class="col-xs-10 col-xs-offset-1 row text-center"></div>
 
 
@@ -86,12 +85,12 @@ if (navigator.geolocation) {
 loadData();
 function loadData (){
   gon.users.forEach(function(user){
-    console.log(user);
-     // var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
+    console.log(user.latitude);
+     var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
 
      var marker = new google.maps.Marker({
-      position: {lat: user.latitude, lng: user.longitude},
-      icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
+      position: locationLatLong,
+      // icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
          // position: locationLatLong,
          map: map
 
@@ -130,6 +129,28 @@ function loadData (){
   window.location.href = '/users/' + $(this).attr('class');
 });
 
- google.maps.event.addDomListener(window, 'load', initialize);
-</script> 
-</body>
+google.maps.event.addDomListener(window, 'load', initialize);
+
+// $(document).ready(function(){
+  function addModalListeners() {
+  console.log("on")
+  //.mdl-layout__container
+  $('body').on('click', '.mdl-navigation__link', function(e) {
+       e.preventDefault();
+       console.log("foobar");
+       // show/hide and do other modal things here
+       $('.modal').show()
+       $('.modal').on('click', '.cancel', function(e) {
+         e.preventDefault();
+         $('.modal').hide();
+       })
+     })
+}
+// })
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function ready() {
+  addModalListeners();
+};
+</script>

@@ -71,5 +71,6 @@ $(function(){
 
        output.innerHTML = "<p>Locating…</p>";
  //find-button onClick >> in success go to Database
- 
+
+
 }

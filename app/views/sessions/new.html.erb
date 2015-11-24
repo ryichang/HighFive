@@ -3,6 +3,14 @@
  <div class="col-sm-6 col-sm-offset-3 colorform">
  <h1>Welcome Back</h1>
    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+   <% if flash[:danger].present? %>
+      <div class="error_messages">
+        <h2>Error(s): </h2>
+          <ul>
+                <%= flash[:danger] %>
+            </ul>
+      </div>
+    <% end %>
      <div>
        <%= f.text_field :email, placeholder: "Email", class:'form-control' %>
      </div>
