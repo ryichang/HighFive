@@ -22,7 +22,7 @@ class ComplimentsController < ApplicationController
 		if @compliment.save
 			redirect_to @user
 		else
-			@user = User.find(params[:user_id])
+			# @user = User.find(params[:user_id])
 			render 'users/show'
 		end
 	end

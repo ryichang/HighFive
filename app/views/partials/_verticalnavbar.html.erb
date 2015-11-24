@@ -16,7 +16,14 @@
           <h4 class="modal-title">Compliment</h4>
         </div>
         <div class="modal-body">
-         
+         <h3>Compliments</h3>
+         <%= form_for [@user] do |f| %>
+ 
+           <p class="comment-form-submit">
+             <%= f.submit "High Five", :class => 'btn btn-sm btn-primary pull-right' %>
+           </p>
+         </div>
+           <% end %>
         </div>
         <div class="modal-actions">
           <button type="button" class="cancel btn-link modal-action" data-dismiss="modal">Cancel</button>
