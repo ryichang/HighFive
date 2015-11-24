@@ -20,15 +20,15 @@
      <br>
      <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control',:required => true, :minlength => '1' %> 
      <br> 
-     <%= f.file_field :avatar %>
-    <br> 
      <%= f.label :email %> 
      <%= f.text_field :email, class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
      <br>
      <%= f.label :password %> 
      <%= f.password_field :password, class:'form-control',:required => true , :minlength => '3' %>
      <br>
-     <div class="text-right">
+     <%= f.file_field :avatar, classButton:"btn btn-primary",:required => true %>
+    
+     <div class="pull-right">
          <%= f.submit "Sign Up", class: 'btn btn-primary' %> 
      </div>
      <% end %> 
