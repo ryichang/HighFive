@@ -220,5 +220,34 @@ input#user_password.form-control {
 
 input {
 	background-color: transparent;
-
+}
+/* ======= NAVIGATION ======= */
+#login-dp{
+    z-index: 2;
+    min-width: 275px;
+    padding: 14px 14px 15px;
+    background-color:rgba(255,255,255,.9);
+    font-family: 'Open Sans', sans-serif;
+}
+.form-control {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: none !important;
+  margin-top: 1px;
+  border-radius: 0px;
+  background-color: transparent;
+}
+input {
+  background-color: transparent;
+}
+.btn, .btn-primary, .btn-block {
+  margin-top: 15px;
+  background-color: #61A786; 
+  border: none; 
+}
+a.dropdown-toggle {
+  border-bottom: none;
+  color: #fff;
 }

@@ -121,24 +121,19 @@ function loadData (){
 }
 
 }
-<<<<<<< HEAD
-addModalListeners();
- }
-=======
->>>>>>> master
 
  // Go to location page when event is clicked on
  $('#showEvents').on('click', function() {
   window.location.href = '/users/' + $(this).attr('class');
 });
 
-<<<<<<< HEAD
 google.maps.event.addDomListener(window, 'load', initialize);
 
 // $(document).ready(function(){
   function addModalListeners() {
   console.log("on")
-  $('.mdl-layout__container').on('click', '.mdl-navigation__link', function(e) {
+  //.mdl-layout__container
+  $('body').on('click', '.mdl-navigation__link', function(e) {
        e.preventDefault();
        console.log("foobar");
        // show/hide and do other modal things here
@@ -150,8 +145,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
      })
 }
 // })
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function ready() {
+  addModalListeners();
+};
 </script>
-=======
- google.maps.event.addDomListener(window, 'load', initialize);
-</script> 
->>>>>>> master
+
+
