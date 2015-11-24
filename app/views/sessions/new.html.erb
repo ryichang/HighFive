@@ -1,6 +1,6 @@
 
-<section class='intro'>
- <div class="col-sm-8 col-sm-offset-2 well">
+<div class="text-center">
+ <div class="col-sm-6 col-sm-offset-3 colorform">
  <h1>Welcome Back</h1>
    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
    <% if flash[:danger].present? %>
@@ -12,12 +12,12 @@
       </div>
     <% end %>
      <div>
-       <%= f.text_field :email, placeholder: "Email" %>
+       <%= f.text_field :email, placeholder: "Email", class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
      </div>
      <div>
-       <%= f.password_field :password, placeholder: "Password" %>
+       <%= f.password_field :password, placeholder: "Password", class:'form-control', :required => true, :minlength => '3' %>
      </div>
-     <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+     <%= f.submit "Submit", class:"btn btn-danger" %>
    <% end %>   
  </div>
-</section>
+</div>

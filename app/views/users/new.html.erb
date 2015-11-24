@@ -1,6 +1,10 @@
-<section class='intro'>
- <div class="col-sm-8 col-sm-offset-2 well">
- <h1>Sign up for High Five</h1>
+<body class="subwaybackground">
+    <div class="container-fluid">
+
+    <section class='intro'>
+
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 colorform">
+     <h1>Sign up for High Five</h1>
      <%= form_for @user do |f| %>
        <ul>
            <% if @user.errors.any? %> 
@@ -12,19 +16,17 @@
              <% end %> 
            <% end %> 
        </ul>
-     <%= f.label :first_name %> 
-     <%= f.text_field :first_name, placeholder: "First Name", class:'form-control', autofocus: true %> 
+     <%= f.text_field :first_name, placeholder: "First Name", class:'form-control', autofocus: true,:required => true, :minlength => '1' %> 
      <br>
-     <%= f.label :last_name %> 
-     <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control' %> 
+     <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control',:required => true, :minlength => '1' %> 
      <br> 
      <%= f.file_field :avatar %>
     <br> 
      <%= f.label :email %> 
-     <%= f.text_field :email, class:'form-control' %>
+     <%= f.text_field :email, class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
      <br>
      <%= f.label :password %> 
-     <%= f.password_field :password, class:'form-control' %>
+     <%= f.password_field :password, class:'form-control',:required => true , :minlength => '3' %>
      <br>
      <div class="text-right">
          <%= f.submit "Sign Up", class: 'btn btn-primary' %> 
@@ -32,3 +34,5 @@
      <% end %> 
  </div>
 </section>
+</div>
+</body>

@@ -9,7 +9,6 @@ LatLng = [];
 
 
 
-
 $(function(){
   $(document).ready(function(){
 
@@ -19,6 +18,9 @@ $(function(){
  if (!navigator.geolocation){
    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
    return;
+ }
+ function error(err){
+ 	console.log(err)
  }
 
  function success(position) {
@@ -32,26 +34,22 @@ $(function(){
    var currentUserId = $(this).attr('data-id')
    
    $.ajax({
-     url: '/users/' + currentUserId,
-     data: { user: { latitude: latitude, longitude: longitude} },
-     // dataType: 'json',
-     type: 'patch',
-     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-     success: function(data) {
-       console.log("Patch Succesful!")
-     },
-     error: function(err) {
+	     url: '/users/' + currentUserId,
+	     data: { user: { latitude: latitude, longitude: longitude} },
+	     // dataType: 'json',
+	     type: 'patch',
+     	beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+     		success: function(data) {
+       		console.log("Patch Succesful!")
+     		},
+       error: function(err) {
        // console.log(latitude)
        console.log(LatLng[0], LatLng[1])
        console.log("Error Thrown")
-     }
+       }
    })
   }
  })
-
- function error() {
-   output.innerHTML = "Unable to retrieve your location";
- };
 
 })
 
