@@ -5,12 +5,20 @@ h1 {
 
 body {
 	font-family: 'Asap', sans-serif;
+	background-color: #fff;
 }
 
 span {
 	color: #fff;
 }
 
+h3 {
+	color:#fff;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 300;
+	padding-left: 10px;
+	max-width: 420px;
+}
 li {
 	color: #000;
 	display: inline-block;
@@ -123,21 +131,63 @@ i.material-icons {
 
 }
 
+.blackbox {
+	margin-top: 10%;
+	margin-bottom: 3%;
+	background-color: #000;
+	clear: left;
+}
+
 .overview {
 	margin-top: 10%;
 }
 .title {
 	width: 100%;
-	font-size: 36px;
+	font-size: 48px;
 	margin-top: -35%;
 	font-weight: normal;
 	z-index:2;
 	border-radius: 2px;
 	color: #fff;
-
+	opacity: 0; 
+    -webkit-animation: fadeIn 3.3s forwards;
+      -o-animation: fadeIn 3.3s forwards;
+      animation: fadeIn 3.3s forwards;  
 }
+
+.howto {
+	margin-bottom: 8%;
+}
+
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
 .dropdown-toggle {
 	padding: 30px important;
+}
+
+.right {
+	border-bottom: 2px solid #999;
+	border-right: 2px solid #999;
+	margin-bottom: 10%;
+}
+
+.middle {
+	border-bottom: 2px solid #999;
+	margin-bottom: 10%;
+}
+
+.left {
+	border-bottom: 2px solid #999;
+	border-left: 2px solid #999;
+	margin-bottom: 10%;
 }
 
 hr {
@@ -224,6 +274,10 @@ input.useravatar {
 	  color: #fff;
 }
 
+.navbar-fixed {
+  clear: both;
+}
+
 a.logo navbar-brand {
 	color:#fff;
 }
@@ -234,6 +288,10 @@ a.logo navbar-brand {
   font-style: italic;
   text-transform: uppercase;
 }
+
+
+/* ======= END NAVIGATION ======= */
+
 
 /* ====== FORM AND BUTTON STYLES ===== */
 
@@ -336,6 +394,20 @@ input {
 
 
  @media (max-width: 768px) { 
+
+ 	.left {
+ 		border-left: none;
+ 		border-bottom: none;
+	}
+
+	.right {
+		border-right: none;
+		border-bottom: none;
+ 	}
+	
+	.middle {
+		border-bottom: none;
+	}
  	.title {
 		display: none !important;
 	}
@@ -347,3 +419,12 @@ input {
 	b {
 		padding-left: 20px;
 	}
+
+	h3 {
+		font-size: 18px;
+		max-width: 300px;
+		padding-left: 50px;
+		
+	}
+
+}
