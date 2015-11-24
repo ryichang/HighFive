@@ -11,14 +11,14 @@ A user will be able to set up a profile with their customized photo. Upon login,
 
 #Built Using
 
-Ruby on Rails 
-PostgreSQL
-Amazon S3
-Google Maps
-Geolocation 
-Ajax
-jQuery
-Heroku 
++Ruby on Rails 
++PostgreSQL
++Amazon S3
++Google Maps
++Geolocation 
++Ajax
++jQuery
++Heroku 
 
 #Future Development
 Sockets 
