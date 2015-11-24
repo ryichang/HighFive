@@ -5,17 +5,74 @@ h1 {
 
 body {
 	font-family: 'Asap', sans-serif;
+	background-color: #fff;
 }
 
 span {
 	color: #fff;
 }
 
+h3 {
+	color:#fff;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 300;
+	padding-left: 10px;
+	max-width: 420px;
+}
 li {
 	color: #000;
 	display: inline-block;
 	padding: 0px;
 	margin: 0;
+}
+
+/* ======= NAVIGATION ======= */
+
+#login-dp{
+   z-index: 2;
+   margin-top: -2px;
+   min-width: 260px;
+   height: auto;
+   padding: 12px 30px 15px;
+   background-color:rgba(0,0,0,.7);
+   font-family: 'Open Sans', sans-serif;
+}
+
+.form-control {
+ margin-right: 0;
+ width: 100%;
+ border-left: none;
+ border-right: none;
+ border-top: none;
+ border-bottom: 1px solid lightgrey;
+ box-shadow: none !important;
+ border-radius: 2px;
+ margin-top: -1px;
+ background-color: transparent;
+
+}
+
+b {
+	text-decoration: none;
+}
+
+b:active {
+	color: #28BCED;
+}
+
+input {
+ background-color: transparent;
+}
+
+.btn, .btn-primary, .btn-block {
+ margin-top: 15px;
+ background-color: #61A786; 
+ border: none; 
+}
+
+a.dropdown-toggle {
+ border-bottom: none;
+ color: #fff;
 }
 
 .navbar {
@@ -24,10 +81,12 @@ li {
 	margin-left: 0px;
 	padding: 0px;
 }
+
 .btn {
 	margin-top: 20px;
 	background-color: #DB0065;
 }
+
 i.fa.fa-icon {
 	color: #fff;
 }
@@ -58,36 +117,91 @@ img {
 	width: 100%;
 }
 
-img.usericon {
-	
-}
-
 .list-group {
 	color: #000;
 	padding: 0px;
+		
+}
+
+body.black {
+	background-color: #000;
+}
+
+i.material-icons {
+
+}
+
+.blackbox {
+	margin-top: 10%;
+	margin-bottom: 3%;
+	background-color: #000;
+	clear: left;
+}
+
+.overview {
+	margin-top: 10%;
 }
 .title {
 	width: 100%;
-	padding: 5%;
-	margin: 20px 20px 20px 20px;
-	font-size: 36px;
-	margin-top: -150%;
+	font-size: 48px;
+	margin-top: -35%;
 	font-weight: normal;
 	z-index:2;
 	border-radius: 2px;
 	color: #fff;
+	opacity: 0; 
+    -webkit-animation: fadeIn 3.3s forwards;
+      -o-animation: fadeIn 3.3s forwards;
+      animation: fadeIn 3.3s forwards;  
+}
+
+.howto {
+	margin-bottom: 8%;
+}
+
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.dropdown-toggle {
+	padding: 30px important;
+}
+
+.right {
+	border-bottom: 2px solid #999;
+	border-right: 2px solid #999;
+	margin-bottom: 10%;
+}
+
+.middle {
+	border-bottom: 2px solid #999;
+	margin-bottom: 10%;
+}
+
+.left {
+	border-bottom: 2px solid #999;
+	border-left: 2px solid #999;
+	margin-bottom: 10%;
 }
 
 hr {
 	min-width: 100%;
 	padding: 0px;
-	margin-left: 0;
-	margin-right: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	color: #999;
 }
 
  span {
- 	color: #666;
+ 	color: #999;
  }
+
 .subtitle {
 	font-size: 36px;
 }
@@ -105,6 +219,7 @@ hr {
 	height: 30px;
 	border-radius: 50%;
 }
+
 span.mdl-layout-title {
 	color: #fff;
 }
@@ -137,6 +252,10 @@ span.mdl-layout-title {
   height: 600px;
  }
 
+input.useravatar {
+	background-color: #000;
+}
+
 #carousel-example-generic {
 	z-index: -2;
 }
@@ -147,9 +266,16 @@ span.mdl-layout-title {
 	padding: 0;
 }
 
+.logo {
+	color: #fff;
+}
 
 .navbar {
 	  color: #fff;
+}
+
+.navbar-fixed {
+  clear: both;
 }
 
 a.logo navbar-brand {
@@ -158,15 +284,46 @@ a.logo navbar-brand {
 .navbar-brand {
   color: #fff;
   font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
   font-style: italic;
+  text-transform: uppercase;
 }
 
+
+/* ======= END NAVIGATION ======= */
+
+
+/* ====== FORM AND BUTTON STYLES ===== */
+
+.btn {
+	background-color: #22A3B1;
+	color: #fff;
+	border-radius: 2px;
+
+}
+
+.file-field {
+	color: #fff;
+}
+
+.btn:hover {
+	background-color: #22A3B1;
+	color: #fff;
+	border: none;
+	border
+}
+.btn:active {
+	background-color: #22A3B1;
+	color: #fff;
+	border: none;
+	
+}
 .form-control {
   border-left: none;
   border-right: none;
   border-top: none;
   border-radius: 3px;
-  border-bottom: 1px solid #FFCB00;
+  border-bottom: 1px solid #fff;
   box-shadow: none !important;
   margin-top: 1px;
   border-radius: 0px;
@@ -176,21 +333,18 @@ a.logo navbar-brand {
 .form-control:active {
 
 }
+.form-control:focus {
+	background-color: transparent;
+}
 .colorform {
   border-radius: 5px;
   padding-top: 3%;
   height: auto;
-  color:  #000;
+  color:  #fff;
   box-shadow: none;
   margin-top: 20px;
   margin-bottom: 15%;
   background-size: cover;
-
-}
-
-.messageBorder {
-	border-bottom: 1px solid #8ADBBC;
-	width: 100%;
 }
 
 i.fa.fa-map-o {
@@ -198,19 +352,19 @@ i.fa.fa-map-o {
 }
 
 i.fa.fa-map-o:hover {
-	color: #0095FF;
+	color: #a8e9f3;
 }
 
 i.fa.fa-map-o:active {
-	color: #0095FF;
+	color: #a8e9f3;
 }
 
 li.media.list-group-item.p-a {
-	width: 100%;
-	padding: 0;
+	padding: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
 }
+
 input#user_first_name.form-control,
 input#user_last_name.form-control,
 input#user_email.form-control,
@@ -221,33 +375,56 @@ input#user_password.form-control {
 input {
 	background-color: transparent;
 }
-/* ======= NAVIGATION ======= */
-#login-dp{
-    z-index: 2;
-    min-width: 275px;
-    padding: 14px 14px 15px;
-    background-color:rgba(255,255,255,.9);
-    font-family: 'Open Sans', sans-serif;
+
+/* MAP NAV BG PAGE ON LOCATIONS VIEW */
+
+.mdl-layout__drawer {
+	background-color: #000;
 }
-.form-control {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: 1px solid lightgrey;
-  box-shadow: none !important;
-  margin-top: 1px;
-  border-radius: 0px;
-  background-color: transparent;
+
+.subwaybackground {
+  background: url(http://i.imgur.com/WSQCGCP.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-input {
-  background-color: transparent;
-}
-.btn, .btn-primary, .btn-block {
-  margin-top: 15px;
-  background-color: #61A786; 
-  border: none; 
-}
-a.dropdown-toggle {
-  border-bottom: none;
-  color: #fff;
+
+/* ===== MEDIA QUERIES ==== */
+
+
+ @media (max-width: 768px) { 
+
+ 	.left {
+ 		border-left: none;
+ 		border-bottom: none;
+	}
+
+	.right {
+		border-right: none;
+		border-bottom: none;
+ 	}
+	
+	.middle {
+		border-bottom: none;
+	}
+ 	.title {
+		display: none !important;
+	}
+
+	#login-dp {
+		width: 100%;
+	}
+
+	b {
+		padding-left: 20px;
+	}
+
+	h3 {
+		font-size: 18px;
+		max-width: 300px;
+		padding-left: 50px;
+		
+	}
+
 }

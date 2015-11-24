@@ -12,12 +12,12 @@
       </div>
     <% end %>
      <div>
-       <%= f.text_field :email, placeholder: "Email", class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+       <%= f.text_field :email, placeholder: "Email", class:'form-control' %>
      </div>
      <div>
-       <%= f.password_field :password, placeholder: "Password", class:'form-control', :required => true, :minlength => '3' %>
+       <%= f.password_field :password, placeholder: "Password", class:'form-control' %>
      </div>
-     <%= f.submit "Submit", class:"btn btn-danger" %>
+     <%= f.submit "Submit", class:"btn btn-primary" %>
    <% end %>   
  </div>
 </div>
