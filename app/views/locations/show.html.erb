@@ -84,12 +84,12 @@ if (navigator.geolocation) {
 loadData();
 function loadData (){
   gon.users.forEach(function(user){
-    console.log(user);
-     // var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
+    console.log(user.latitude);
+     var locationLatLong = new google.maps.LatLng(user.latitude, user.longitude);
 
      var marker = new google.maps.Marker({
-      position: {lat: user.latitude, lng: user.longitude},
-      icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
+      position: locationLatLong,
+      // icon: 'http://chart.apis.google.com/chart?chsd_t=main_p_pletter&chld=%E2%80%A2|FF0000',
          // position: locationLatLong,
          map: map
 
