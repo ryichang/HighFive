@@ -123,6 +123,9 @@ i.material-icons {
 
 }
 
+.overview {
+	margin-top: 10%;
+}
 .title {
 	width: 100%;
 	font-size: 36px;
@@ -226,8 +229,9 @@ a.logo navbar-brand {
 }
 .navbar-brand {
   color: #fff;
-  font-family: 'Asap', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
+  font-style: italic;
   text-transform: uppercase;
 }
 
