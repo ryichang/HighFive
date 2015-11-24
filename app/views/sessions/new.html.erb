@@ -1,15 +1,15 @@
-<body class="subwaybackground">
+
 <div class="text-center">
  <div class="col-sm-6 col-sm-offset-3 colorform">
  <h1>Welcome Back</h1>
    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
      <div>
-       <%= f.text_field :email, placeholder: "Email", class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+       <%= f.text_field :email, placeholder: "Email", class:'form-control' %>
      </div>
      <div>
-       <%= f.password_field :password, placeholder: "Password", class:'form-control', :required => true, :minlength => '3' %>
+       <%= f.password_field :password, placeholder: "Password", class:'form-control' %>
      </div>
-     <%= f.submit "Submit", class:"btn" %>
+     <%= f.submit "Submit", class:"btn btn-primary" %>
    <% end %>   
  </div>
 </div>

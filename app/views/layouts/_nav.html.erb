@@ -1,6 +1,5 @@
 
  <div class="container-fluid">
-
  <nav id='nav' class="navbar navbar-default navbar-affixed-top">
    <!-- Brand and toggle get grouped for better mobile display -->
    <div class="navbar-header">
@@ -26,10 +25,59 @@
       <li><a href="/locations/<%=@user.id%>" data-no-turbolinks="true"><i class="fa fa-map-o"></i></a></li>
        <li><%= link_to "Log out", logout_path %></li>
      <% else %> 
-       <li><%= link_to "Log in",  new_session_path, method: :get %></li>
-  <li>
-  <%= link_to "Sign up", new_user_path,  method: :get %>
-     <% end %></li>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+         <ul id="login-dp" class="dropdown-menu pull-right">
+                 <div class="form-group">
+                     <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+       <% if flash[:danger].present? %>
+          <div class="error_messages">
+            <h2>Error(s): </h2>
+              <ul>
+                    <%= flash[:danger] %>
+                </ul>
+          </div>
+        <% end %>
+         <div>
+           <%= f.text_field :email, placeholder: "Email", class: 'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+         </div>
+         <div>
+           <%= f.password_field :password, placeholder: "Password", class: 'form-control', :required => true, :minlength => '3' %>
+         </div>
+         <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+       <% end %>   
+                   </ul> 
+  
+      <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up</b> <span class="caret"></span></a>
+             <ul id="login-dp" class="dropdown-menu pull-right">
+              <%= form_for @user do |f| %>
+                <ul>
+                    <% if @user.errors.any? %> 
+                      <p>
+                          <%= pluralize(@user.errors.count, "error") %> prevented the form from being saved:
+                      </p>
+                      <% @user.errors.full_messages.each do |message| %> 
+                      <li><%= message %></li>
+                      <% end %> 
+                    <% end %> 
+                </ul>
+              <%= f.text_field :first_name, placeholder: "First Name", class:'form-control', autofocus: true,:required => true, :minlength => '1' %> 
+              <br>
+              <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control',:required => true, :minlength => '1' %> 
+              <br> 
+              <%= f.label :email %> 
+              <%= f.text_field :email, class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+              <br>
+              <%= f.label :password %> 
+              <%= f.password_field :password, class:'form-control',:required => true , :minlength => '3' %>
+              <br>
+              <%= f.file_field :avatar %>
+             <br> 
+              <div class="text-right">
+                  <%= f.submit "Sign Up", class: 'btn btn-primary btn-block' %> 
+              </div>
+              <% end %> 
+     <% end %>
      </div>
      </div>
    </div><!-- /.navbar-collapse -->
