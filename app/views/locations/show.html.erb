@@ -16,9 +16,9 @@
 
 
 <script type="text/javascript">
- 
+
   function initialize() {
-   
+
     var map = new google.maps.Map(document.getElementById('map'), {
      zoom: 10,
      zoomControl: false,
@@ -62,9 +62,6 @@ if (navigator.geolocation) {
       map: map
     });
 
-  var infowindow = new google.maps.InfoWindow({
-   content: "You are here"
- });
   infoBubble = new InfoBubble({
     content: '<div class="center-block" id="centerthis"><img id ="marker-profile-photo" src="' + profilePhoto + '"></div>',
     minWidth: 105,
@@ -90,10 +87,14 @@ function loadData (){
       // position: locationLatLong,
       position: {lat: user.latitude, lng: user.longitude},
       icon: gon.pictures[user.id],
-         map: map
+      map: map
 
-       });
+    });
      console.log(marker)
+
+      var infowindow = new google.maps.InfoWindow({
+       content: "<button class='btn btn-danger' id='collapse'>Hi-Five</button>"
+     });
 
      marker.addListener('click', function() {
        infowindow.open(map, marker);
@@ -127,24 +128,18 @@ function loadData (){
   window.location.href = '/users/' + $(this).attr('class');
 });
 
-google.maps.event.addDomListener(window, 'load', initialize);
+ google.maps.event.addDomListener(window, 'load', initialize);
 
-// $(document).ready(function(){
-//   function addModalListeners() {
-//   console.log("on")
-//   //.mdl-layout__container
-//   $('body').on('click', '.mdl-navigation__link', function(e) {
-//        e.preventDefault();
-//        console.log("foobar");
-//        // show/hide and do other modal things here
-//        $('.modal').show()
-//        $('.modal').on('click', '.cancel', function(e) {
-//          e.preventDefault();
-//          $('.modal').hide();
-//        })
-//      })
-// }
-// })
+$(document).ready(function(){
+  console.log("on")
+  //.mdl-layout__container
+  $('body').on('click', '#collapse', function(e) {
+       console.log("foobar");
+       // show/hide and do other modal things here
+       $('.material-icons').click()
+     })
+
+})
 $(document).ready(ready);
 $(document).on('page:load', ready);
 
