@@ -141,7 +141,7 @@ i.material-icons {
 .overview {
 	margin-top: 10%;
 }
-.title {
+/*.title {
 	width: 100%;
 	font-size: 48px;
 	margin-top: -35%;
@@ -153,6 +153,10 @@ i.material-icons {
     -webkit-animation: fadeIn 3.3s forwards;
       -o-animation: fadeIn 3.3s forwards;
       animation: fadeIn 3.3s forwards;  
+}*/
+
+a.logo.navbar-brand {
+	color: #fff;
 }
 
 #compliment_comment {
@@ -427,19 +431,7 @@ input {
 
  @media (max-width: 768px) { 
 
- 	.left {
- 		border-left: none;
- 		border-bottom: none;
-	}
 
-	.right {
-		border-right: none;
-		border-bottom: none;
- 	}
-	
-	.middle {
-		border-bottom: none;
-	}
  	.title {
 		display: none !important;
 	}
@@ -454,12 +446,14 @@ input {
 
 	h3 {
 		font-size: 18px;
-		max-width: 300px;
-		
-		
+		max-width: 300px;	
 	}
 
 	.miniavatar {
 	display: none;
+	}
 
+	p.steps {
+	font-size: 18px;
+	}
 }
