@@ -12,7 +12,7 @@
    </div>
   
    <!-- Collect the nav links, forms, and other content for toggling -->
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
      
      
      <ul class="nav navbar-nav navbar-right">
@@ -24,7 +24,7 @@
       <li><a href="/locations/<%=@user.id%>" data-no-turbolinks="true"><i class="fa fa-map-o"></i></a></li>
        <li><%= link_to "Log out", logout_path %></li>
      <% else %> 
-         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
          <ul id="login-dp" class="dropdown-menu pull-right">
                  <div class="form-group">
                      <%= form_for @user, url: "/sessions", method: "post" do |f| %>
@@ -65,11 +65,10 @@
               <%= f.text_field :last_name, placeholder: "Last Name", class:'form-control',:required => true, :minlength => '1' %> 
               <br> 
                            <br> 
-              <%= f.label :email %> 
-              <%= f.text_field :email, class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+              
+              <%= f.text_field :email, placeholder: "Email", class:'form-control',:required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
               <br>
-              <%= f.label :password %> 
-              <%= f.password_field :password, class:'form-control',:required => true , :minlength => '3' %>
+              <%= f.password_field :password, placeholder: "Password", class:'form-control',:required => true , :minlength => '3' %>
               <br>
               <%= f.file_field :avatar %>
              <br> 
