@@ -15,7 +15,7 @@
 
   var Carousel = function (element, options) {
     this.$element    = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
+    this.$indicators = this.$element.find('.carousel-indicators') 
     this.options     = options
     this.paused      = null
     this.sliding     = null
@@ -44,8 +44,8 @@
   Carousel.prototype.keydown = function (e) {
     if (/input|textarea/i.test(e.target.tagName)) return
     switch (e.which) {
-      case 37: this.prev(); break
-      case 39: this.next(); break
+      case 37: this.prev(); break;
+      case 39: this.next(); break;
       default: return
     }
 

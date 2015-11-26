@@ -177,6 +177,10 @@ a.logo.navbar-brand {
   100% { opacity: 1; }
 }
 
+.carousel-example-generic {
+	overflow: hidden;
+	clear: right;
+}
 
 .dropdown-toggle {
 	padding: 30px important;
@@ -193,6 +197,7 @@ a.logo.navbar-brand {
 }
 
 .left {
+	clear:left;
 	margin-bottom: 15%;
 }
 
