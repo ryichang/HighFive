@@ -3,6 +3,10 @@ h1 {
 	font-weight: 400;
 }
 
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
 body {
 	font-family: 'Asap', sans-serif;
 	background-color: #fff;
@@ -455,10 +459,10 @@ input {
 	}
 
 	.miniavatar {
-	display: none;
+		display: none;
 	}
 
 	p.steps {
-	font-size: 18px;
+		font-size: 18px;
 	}
 }
