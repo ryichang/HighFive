@@ -172,14 +172,6 @@ a.logo.navbar-brand {
 	margin-bottom: 8%;
 }
 
-@-webkit-keyframes fadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-moz-keyframes fadeIn {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
 
 .carousel-example-generic {
 	overflow: hidden;
@@ -187,7 +179,7 @@ a.logo.navbar-brand {
 }
 
 .dropdown-toggle {
-	padding: 30px important;
+	padding: 30px !important;
 }
 
 .right {
@@ -332,7 +324,6 @@ a.logo navbar-brand {
 	background-color: #22A3B1;
 	color: #fff;
 	border: none;
-	border
 }
 .btn:active {
 	background-color: #22A3B1;
