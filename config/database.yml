@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: HighFive_production
-  username: HighFive
+  database: highfive_production
+  username: highfive
   password: <%= ENV['HIGHFIVE_DATABASE_PASSWORD'] %>

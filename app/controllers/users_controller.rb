@@ -28,12 +28,14 @@ class UsersController < ApplicationController
 		render :edit
 	end
 
-	def update               
-		@user = User.find(session[:user_id])
-		updated_attributes = params.require(:user).permit(:first_name, :last_name, :avatar, :latitude, :longitude)
-		p "PARAMS HERE: #{updated_attributes}"
-		@user.update_attributes(updated_attributes)
-		redirect_to @user 
+	def update
+		if session[:user_id]               
+			@user = User.find(session[:user_id])
+			updated_attributes = params.require(:user).permit(:first_name, :last_name, :avatar, :latitude, :longitude)
+			p "PARAMS HERE: #{updated_attributes}"
+			@user.update_attributes(updated_attributes)
+			redirect_to @user
+		end 
 	end
 
 
